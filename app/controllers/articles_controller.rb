@@ -29,7 +29,7 @@ class ArticlesController < ApplicationController
         name: 'test.txt',
         parents: [folder_id]
     }
-    metadata = drive.update_file(metadata, fields: 'id', upload_source: 'test.txt', content_type: 'text/plain')
+    metadata = drive.create_file(metadata, fields: 'id', upload_source: 'test.txt', content_type: 'text/plain')
     list_files = drive.list_files()
     list_files.files.each do |file|
         puts "#{file.name} (#{file.id})"
