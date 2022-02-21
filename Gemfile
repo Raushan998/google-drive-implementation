@@ -7,6 +7,7 @@ ruby '2.6.3'
 gem 'rails', '~> 5.2.3'
 gem 'redis'
 gem 'googleauth'
+gem 'carrierwave' 
 gem 'google-api-client'
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'

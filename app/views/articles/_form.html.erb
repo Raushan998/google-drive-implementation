@@ -1,7 +1,7 @@
 <%= form_with model: article, html: { multipart: true } do |form| %>
   <div class="field">
   <%= form.label :content %>    
-  <%= form.rich_text_area :content %>
+  <%= form.file_field :content%>
 </div>
 <%= form.submit "Save" %>   
 <% end %>

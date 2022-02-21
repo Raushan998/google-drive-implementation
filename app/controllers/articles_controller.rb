@@ -24,12 +24,15 @@ class ArticlesController < ApplicationController
     authorizer.fetch_access_token!
     drive = Drive::DriveService.new
     drive.authorization = authorizer
-
+    folder_id="1CmMzgzy7kySuh7bDZSs9RxjLSHe0zbUa"
+    metadata = {
+        name: 'test.txt',
+        parents: [folder_id]
+    }
+    metadata = drive.update_file(metadata, fields: 'id', upload_source: 'test.txt', content_type: 'text/plain')
     list_files = drive.list_files()
     list_files.files.each do |file|
         puts "#{file.name} (#{file.id})"
     end
-    # metadata = Google::Apis::DriveV3::File.new(name: 'test.txt')
-    # metadata = drive.create_file(metadata, upload_source: './test.txt', content_type: 'text/plain')
   end
 end
